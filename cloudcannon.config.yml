@@ -1,0 +1,132 @@
+source: site
+paths:
+  uploads: uploads
+  collections: collections
+  data: _website_settings
+  layouts: _layouts
+  includes: _includes
+collections_config:
+  data:
+    path: _website_settings
+    output: false
+    icon: notes
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  posts:
+    path: collections/_posts
+    output: true
+    icon: notes
+    create:
+      path: >-
+        [relative_base_path]/{date|year}-{date|month}-{date|day}-{title|slugify}.[ext]
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  pages:
+    path: collections/_pages
+    output: true
+    name: Pages
+    icon: web
+    singular_name: Page
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  staff_members:
+    path: collections/_staff_members
+    output: false
+    name: Staff Members
+    icon: supervisor_account
+    singular_name: Staff Member
+    _editables: {}
+    _inputs: {}
+    _select_data: {}
+    _structures: {}
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas: {}
+  drafts:
+    path: collections/_drafts
+    output: true
+    icon: notes
+    create:
+      publish_to: posts
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+collection_groups:
+  - heading: Pages
+    collections:
+      - pages
+  - heading: Blog
+    collections:
+      - posts
+      - drafts
+      - staff_members
+  - heading: Settings
+    collections:
+      - data
+_inputs:
+  categories:
+    type: multiselect
+    options:
+      allow_create: true
+      empty_type: array
+    cascade: true
+  tags:
+    type: multiselect
+    options:
+      allow_create: true
+      empty_type: array
+    cascade: true
+  live_domain_url:
+    type: url
+    comment: >-
+      Remove any '/' at the end of the URL so your domain looks like this -
+      'https://example.com'
+    cascade: true
+  website_description_text:
+    type: text
+    comment: Used for search engine optimisation and sharing on social media
+    cascade: true
+  social_media_share_image:
+    type: image
+    comment: 1200x675px
+    cascade: true
+  twitter_handle:
+    type: text
+    comment: E.g. @username
+    cascade: true
+  large_bookmark_icon_image:
+    type: image
+    comment: 32x32px
+    cascade: true
+  small_bookmark_icon_image:
+    type: image
+    comment: 16x16px
+    cascade: true
+_select_data:
+  page_themes:
+    - Light
+    - Dark
+  alignments:
+    - Left
+    - Center
+    - Right
+  link_type:
+    - Text
+    - Button
+  website_themes:
+    - Hydra
+    - Justice
+    - Cause
+    - Urban
+  component_themes:
+    - Light
+    - Dark
+    - Branded
+_structures: {}
+_editables: {}
+data_config: {}
+timezone: Etc/UTC
